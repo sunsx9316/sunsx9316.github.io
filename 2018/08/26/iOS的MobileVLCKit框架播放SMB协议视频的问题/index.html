@@ -9,7 +9,7 @@
 <p>可以看到，<code>initWithPath:</code>方法把字符串通过<code>fileURLWithPath:isDirectory:</code>方法初始化成URL了，所以smb格式的字符串路径通过这个方法初始化得到的路径肯定是错的，因为它不是标准的本地路径，自然会出现上面神奇的情况。<br>然后看下<code>initWithURL:</code>方法，if语句判断如果包含smb前缀，则做URL解码操作。说明我们的想法是正确的，确实应该对URL进行编码。但是，经过测试编码还是不行，这种情况就很费解了。到现在我还不知道什么原因，因为它自己的APP都有这个问题。不过之后偶然发现了解决方法，很简单<br><strong><br>把URL编码两次即可！！<br>把URL编码两次即可！！<br>把URL编码两次即可！！
 </strong></p>
 <p>重要的事情说三遍，编码两次之后框架会对URL解码一次，所以得到的URL实际是编码了一次的内容，这样就能播放了，非常神奇，这是<strong>第五个坑。</strong>在这里分享一下给需要的童鞋。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="#注意事项"></a>#注意事项</h2><p>应该只对<code>path</code>、<code>hostname</code>、<code>password</code>部分做URL两次编码，<code>smb://</code>前缀不需要，否则播放器会无法识别。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>应该只对<code>path</code>、<code>hostname</code>、<code>password</code>部分做URL两次编码，<code>smb://</code>前缀不需要，否则播放器会无法识别。</p>
 <p>2017.10.16日更新 如果发现拼接之后还是没法播放，大部分是因为VLC的版本比较旧的关系，cocoapods里有最新的unstable版本，用这个，不过这个版本也是最不稳定的。</p>
 <p>2018.7.8日更新 <a href="https://github.com/sunsx9316/SMBPlayerDemo">文章Demo</a></p>
 </div></article></div></main><footer><div class="paginator"><a href="/2018/08/26/UITableView-FDTemplateLayoutCell计算行高一些缺陷的解决方法/" class="prev">PREV</a><a href="/2018/08/26/第一篇博客/" class="next">NEXT</a></div><div class="copyright"><p>© 2018 <a href="https://github.com/sunsx9316">Jim Huang</a> | Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
