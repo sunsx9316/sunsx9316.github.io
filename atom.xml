@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://sunsx9316.github.io/"/>
-  <updated>2019-08-17T03:06:31.955Z</updated>
+  <updated>2020-02-14T08:00:17.954Z</updated>
   <id>https://sunsx9316.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac安装虚拟机提示应用副本已损坏解决办法</title>
+    <link href="https://sunsx9316.github.io/2020/02/14/Mac%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%8F%90%E7%A4%BA%E5%BA%94%E7%94%A8%E5%89%AF%E6%9C%AC%E5%B7%B2%E6%8D%9F%E5%9D%8F%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>https://sunsx9316.github.io/2020/02/14/Mac安装虚拟机提示应用副本已损坏解决办法/</id>
+    <published>2020-02-14T07:58:37.000Z</published>
+    <updated>2020-02-14T08:00:17.954Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Mac 开发不像 iOS，没有完整的调试环境模拟真机，所以在做版本兼容测试，或者查旧版系统 Bug 时只能借助虚拟机。之前发现<strong>Mac OS 10.12</strong>虚拟机安装出现了问题，现在把解决的方法分享出来。</p><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h4 id="碰到的问题"><a href="#碰到的问题" class="headerlink" title="碰到的问题"></a>碰到的问题</h4><p>安装的时候，碰到安装错误，提示<strong>应用副本已损坏</strong>，或者<strong>安装器有效负载签名检查失败</strong>。查了下发现是系统时间的问题，所以下面给出解决办法。</p><p><img src="//sunsx9316.github.io/2020/02/14/Mac安装虚拟机提示应用副本已损坏解决办法/1.png" alt=""></p><h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><ol><li><p>直接调整系统的时间。</p><p>  手动调整系统年份为<strong>2017年</strong>即可，年月日时分秒无需调整。虚拟机也无须断网，测试可以正常安装。</p><blockquote><p>优点：操作简单。<br>缺点：修改了系统时间可能会有一些问题，比如影响浏览器证书验证，邮箱接收等，需要在安装完改回正确的时间。</p></blockquote></li><li><p>只修改虚拟机的时间。</p><p> 步骤：</p><ol><li>虚拟机需要断网。</li><li>虚拟机打开 实用工具 &gt; 终端。</li><li><p>输入 date + 时间（年份需要替换成2017）。例如当前是2020年2月14日15:19:20，那就应该输入 <strong>date 021415192017.20</strong>，和系统时分秒误差要在1分钟内。</p><blockquote><p>02是月，14是日，15是时，19是分，2017是年，20是秒。</p></blockquote></li><li><p>如果仍然有问题，年份可以试试向前改，比如2015。</p><blockquote><p>优点：不影响系统运行，该干嘛干嘛。<br>缺点：操作相对复杂。</p></blockquote></li></ol></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;Mac 开发不像 iOS，没有完整的调试环境模拟真机，所以在做版本兼容测试，或者查旧版系统 Bug 时只能借助虚拟机。之前发现&lt;strong
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>用更优雅的方式使用KVO</title>
